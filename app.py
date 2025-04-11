@@ -389,7 +389,7 @@ def expected_goal():
         return response
 
     elif sub_feature == "Outside The Box":
-        outside_box = shots[shots['location'] == 15]
+        outside_box = shots_team[shots_team['location'] == 15]
         outbox_players = outside_box.groupby('player').sum().reset_index()
         outbox_players.rename(columns={'event_type': 'n_outbox_shots', 'is_goal': 'trueGoals', 'prediction': 'expectedGoals'}, inplace=True)
         show = outbox_players.sort_values(['difference', 'trueGoals']).reset_index(drop=True)
